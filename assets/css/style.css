@@ -1,0 +1,703 @@
+/* Header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 10%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: transparent; /* Transparan di awal */
+  transition: background-color 0.3s ease; /* Transisi untuk perubahan warna */
+}
+
+.header.scrolled {
+  background-color: rgb(220, 220, 220); /* Warna abu-abu saat di-scroll */
+}
+
+  .header .logo {
+    font-size: 2.3rem;
+    font-weight: 700;
+    font-style: italic;
+    margin-left: -3rem;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* Efek Hover pada Nav Links */
+  .nav-links a {
+    text-decoration: none;
+    color: #000; /* Warna teks default */
+    font-size: 1.25rem;
+    position: relative; /* Memungkinkan penggunaan posisi relatif untuk pseudo-element */
+    margin: 0;
+    padding: 0;
+    transition: color 0.3s ease; /* Transisi warna teks */
+  }
+  
+  .nav-links a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -0.2rem; /* Jarak garis bawah dari teks */
+    width: 100%;
+    height: 0.1rem; /* Ketebalan garis bawah */
+    background-color: grey; /* Warna garis bawah */
+    transform: scaleX(0); /* Mulai dari 0% lebar */
+    transform-origin: bottom right; /* Efek transformasi dari kanan */
+    transition: transform 0.3s ease; /* Transisi transformasi */
+  }
+  
+  .nav-links a:hover {
+    color:grey; /* Warna teks saat hover */
+  }
+  
+  .nav-links a:hover::after {
+    transform: scaleX(1); /* Memperluas garis bawah ke 100% lebar saat hover */
+  }
+
+/* shop show */
+
+.shop-now {
+  border: 1px solid #000;
+  background: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.shop-now:hover {
+  background: #000;
+  color: #fff;
+  border-color: black;
+}
+
+ /* Hero Section */
+ .hero {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f3f3;
+  position: relative;
+}
+
+.hero-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: left;
+  margin-left: 5rem;
+  align-items: center;
+  background-image: url('../img/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: black;
+  z-index: 1; /* Pastikan konten tetap di atas */
+}
+
+/* Gambar memenuhi header */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Gambar berada di belakang konten */
+  opacity: 0.8; /* Sedikit transparan agar teks lebih terlihat */
+}
+
+/* Styling gambar di hero */
+.image-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-left: 3rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.text-content {
+  position: relative;
+  z-index: 1; /* Memastikan teks berada di atas gambar */
+}
+
+.text-content h1 {
+  font-size: 3.5em;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.text-content h1 span {
+  color: grey;
+}
+
+.text-content .buttons {
+  margin-top: 2rem;
+}
+
+.text-content .get-started,
+.text-content .explore-now {
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 50px;
+  margin-right: 1rem;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Menambahkan animasi transisi */
+}
+
+.text-content .get-started {
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+}
+
+.text-content .get-started:hover {
+  background-color: #444; /* Warna latar saat hover */
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.text-content .explore-now {
+  background-color: #fff;
+  border: 1px solid grey;
+  color: #000;
+  font-weight: bold;
+}
+
+.text-content .explore-now:hover {
+  background-color: grey; /* Warna latar saat hover */
+  color: #fff; /* Warna teks saat hover */
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+  /* Image */
+  .image-content {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image-content img {
+    max-width: 70%;
+    border-radius: 8px; 
+    margin-left: 3rem; /* Menambahkan jarak kiri */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan tipis */
+    margin-right: -3rem;
+  }
+  
+ /* About Section */
+.about {
+  padding: 10rem 7% 1.4rem;
+}
+
+.about h2, .menu h2, .contact h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+  padding: 0.5rem 0 0 0; 
+  margin-right: -3rem;
+}
+
+.about .row {
+  display: flex;
+}
+
+.about .row .about-img {
+  flex: 1 1 45rem;
+}
+
+.image-stack {
+  position: relative;
+  width: 45%;
+  margin-left: 8rem;
+  margin-top: -4rem; /* Menggeser gambar ke atas */
+}
+
+.image-stack .image {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.image-stack .primary {
+  z-index: 1; /* Gambar utama berada di depan */
+}
+
+.image-stack .secondary {
+  left: -100px; /* Sesuaikan posisi tumpang tindih */
+  top: -2px; /* Sesuaikan posisi tumpang tindih */
+  z-index: 0;
+  opacity: 0.9; /* Sesuaikan opasitas jika diperlukan */
+  filter: grayscale(100%) brightness(0%); /* yang membuat hitam */
+  transform: rotate(-10deg); /* Menambahkan rotasi untuk miring */
+}
+
+.about .row .content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+}
+
+.about .row .content h3 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-style: initial;
+  font-weight: bold;
+}
+
+.about .row .content h3 span {
+  color: grey;
+}
+
+.about .row .content p {
+  margin-bottom: 0.8rem;
+  font-size: 2rem;
+  font-weight: 100;
+  line-height: 1.6;
+}
+
+  /* Collection */
+.best-collection {
+  padding: 2rem;
+  margin: 0 4rem; 
+  margin-left: 1.5rem;/* Sama dengan margin kanan pada .newsletter-subscribe */
+}
+.best-collection h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: initial;
+  margin-top: 8rem;
+  margin-left: 3rem;
+}
+.collection-info {
+  display: flex;
+  flex-direction: column; /* Atur elemen dalam kolom */
+  align-items: flex-end; /* Posisikan elemen ke kanan */
+  margin-top: -4rem; /* Mengatur jarak atas untuk menaikkan posisi */
+  margin-bottom: 2rem; /* Jarak bawah untuk memisahkan dari grid */
+  margin-right: 3rem; /* Menambahkan margin kanan jika diperlukan */
+}
+.collection-info p {
+  margin: none; /* Jarak antar paragraf */
+}
+
+.view-all {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+  margin-bottom: 2rem;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Pusatkan elemen secara horizontal */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.product img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 10px;
+}
+.category, .name, .price {
+  margin: none;
+  /* Pastikan text-align sudah terpusat dengan align-items center di container */
+}
+.price {
+  color: red;
+}
+
+/* grid Section */
+.grid {
+  padding: 10rem 7% 1.4rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  margin-top: -10rem; /* Mengurangi jarak atas untuk mendekatkan dengan Collection */
+}
+
+.grid h2 {
+  font-size: 3em;
+  line-height: 1.2;
+  font-weight: bold;
+  max-width: 50%;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.grid h2 span {
+  color: grey;
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 5rem;
+  
+}
+
+.image-item1 {
+  grid-column: span 2;
+  margin-left: 0.5rem;
+}
+
+.image-item1 img {
+  width: 53%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.image-item2 img {
+  width: 80%;
+  height: auto;
+  margin-left: 0.5rem;
+}
+.image-item3 {
+  display: flex;
+  align-items: flex-start;
+  margin-top: -25.5rem; /* Mengatur jarak vertikal antara item 2 dan item 3 */
+  margin-left: -6.5rem;
+}
+
+.image-item3 img {
+  width: 250%; /* Melebarkan gambar */
+  height: 100%;
+  transform: translateX(-11%); /* Menggeser gambar ke kanan */
+}
+
+
+/* Contact */
+.newsletter-subscribe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.left-section {
+  flex: 1;
+  margin-left: 7rem;
+}
+
+
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10rem;
+
+}
+.newsletter-subscribe h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: initial;
+}
+.newsletter-subscribe p {
+  margin: none;
+}
+.newsletter-subscribe form {
+  display: flex;
+  align-items: center;
+}
+.newsletter-subscribe input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  margin-right: 1rem;
+  width: 300px;
+  text-align: center; /* Menambahkan text-align: center untuk memusatkan teks */
+}
+.newsletter-subscribe input::placeholder {
+  text-align: center; /* Menambahkan text-align: center untuk memusatkan placeholder */
+}
+.newsletter-subscribe button {
+  padding: 0.5rem 1rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.newsletter-subscribe button:hover {
+  background-color: grey;
+  color: white;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto; /* Added margin top */
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 33.333%; /* Each item takes 1/3 of the container width */
+  position: relative;
+  transition: transform 0.5s ease-in-out, z-index 0.5s ease-in-out;
+  transform-origin: center;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.carousel-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  pointer-events: none; /* Prevent interaction with the content */
+}
+
+.discount-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.discount {
+  font-size: 3rem;
+  color: #ffffff;
+}
+
+.event {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.info {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.prev,
+.next {
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+  z-index: 3;
+}
+
+.prev:hover,
+.next:hover {
+  color: #ddd;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-indicators span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel-indicators span.active {
+  background-color: #333;
+}
+
+
+/*Our Collection */
+.collection-section {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+}
+
+.collection-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.collection-title {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px; /* Ensure all cards have the same height */
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-image-container {
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
+.product-image {
+  width: 100%;
+}
+
+.product-name,
+.product-description,
+.product-price {
+  text-align: left;
+}
+
+.product-name {
+  font-size: 1.2em;
+  margin: 15px 0 10px;
+  font-weight: 600;
+}
+
+.product-description {
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.shop-now-button {
+  padding: 10px 20px;
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  align-self: center; /* Center the button horizontally */
+}
+
+.shop-now-button:hover {
+  background-color: #333;
+}
+
+.view-more-button {
+  margin-top: 40px;
+  padding: 15px 30px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-more-button:hover {
+  background-color: black;
+}
+
+
+/* about us */
+.about-us {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 10%;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.text-content {
+  width: 50%;
+}
+
+.text-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.text-content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.image-content {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-content img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
